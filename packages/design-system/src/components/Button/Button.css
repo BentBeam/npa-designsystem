@@ -1,0 +1,67 @@
+/* NPA Button – all styling pekar på design tokens, aldrig råa värden. */
+
+.npa-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-family);
+  font-size: var(--font-button-size);
+  line-height: var(--font-button-lh);
+  letter-spacing: var(--font-button-ls);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+/* --- Storlekar (medium matchar Figma: 12px vertikalt, 24px horisontellt) --- */
+.npa-button--small  { padding: var(--spacing-sm) var(--spacing-lg); }
+.npa-button--medium { padding: var(--spacing-md) var(--spacing-xl); }
+.npa-button--large  { padding: var(--spacing-lg) var(--spacing-xl); }
+
+.npa-button--full { width: 100%; }
+
+/* --- Variant: primary (blå action) --- */
+.npa-button--primary {
+  background-color: var(--color-action-primary);
+  color: var(--color-action-on-primary);
+}
+.npa-button--primary:hover:not(:disabled)  { background-color: var(--color-action-primary-hover); }
+.npa-button--primary:active:not(:disabled) { background-color: var(--color-action-primary-active); }
+
+/* --- Variant: secondary (kantlinje) --- */
+.npa-button--secondary {
+  background-color: var(--color-action-secondary-bg);
+  color: var(--color-action-secondary-fg);
+  border-color: var(--color-action-secondary-border);
+}
+.npa-button--secondary:hover:not(:disabled) { background-color: var(--color-action-secondary-hover); }
+.npa-button--secondary:active:not(:disabled) { background-color: var(--color-action-focus-ring); }
+
+/* --- Variant: ghost (ingen yta) --- */
+.npa-button--ghost {
+  background-color: transparent;
+  color: var(--color-action-secondary-fg);
+}
+.npa-button--ghost:hover:not(:disabled) { background-color: var(--color-action-secondary-hover); }
+.npa-button--ghost:active:not(:disabled) { background-color: var(--color-action-focus-ring); }
+
+/* --- Variant: danger (destruktiv) --- */
+.npa-button--danger {
+  background-color: var(--color-status-error);
+  color: var(--color-text-inverse);
+}
+.npa-button--danger:hover:not(:disabled) {
+  /* Figma saknar en danger-hover-token – härleds som en mörkare error-färg */
+  background-color: color-mix(in srgb, var(--color-status-error) 85%, black);
+}
+
+/* --- Inaktiverad --- */
+.npa-button:disabled {
+  background-color: var(--color-action-disabled-bg);
+  color: var(--color-action-disabled-fg);
+  border-color: transparent;
+  cursor: not-allowed;
+}

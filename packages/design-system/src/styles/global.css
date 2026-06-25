@@ -1,0 +1,26 @@
+/* =========================================================================
+   GLOBALA STILAR
+   Laddar Poppins och sätter grundläggande bas-styling som ärvs av allt.
+   Importeras EN gång i Storybook (.storybook/preview.tsx) och i appar.
+   ========================================================================= */
+
+/* Poppins – de vikter vi använder i designsystemet */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@import './tokens.css';
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-body-lg-size);
+  line-height: var(--font-body-lg-lh);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-subtle);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Synlig fokusmarkering för tangentbordsnavigering (tillgänglighet) */
+:where(button, a, input, select, textarea):focus-visible {
+  outline: 2px solid var(--color-action-focus-ring);
+  outline-offset: 2px;
+}

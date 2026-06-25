@@ -1,0 +1,54 @@
+name: Deploy Storybook
+
+# Kör vid varje push till main – det är detta som "automatiskt bygger om"
+# den hostade Storybook när någon ändrat en komponent eller story.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # tillåter att köra manuellt från GitHub-fliken "Actions"
+
+# Rättigheter som krävs för att publicera till GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Avbryt en pågående deploy om en ny push kommer
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hämta koden
+        uses: actions/checkout@v4
+
+      - name: Sätt upp Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Installera (hela monorepot)
+        run: npm ci
+
+      - name: Bygg Storybook
+        run: npm run build-storybook --workspace @npa/design-system
+
+      - name: Ladda upp som Pages-artefakt
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: packages/design-system/storybook-static
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicera till GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,147 @@
+/* =========================================================================
+   NPA DESIGN TOKENS
+   -------------------------------------------------------------------------
+   EXAKT spegel av variablerna i NPA:s Figma-bibliotek
+   (fil pGLg6yAxadVnI00WbgWsSt, node 5:2). Synkad 2026-06-25.
+
+   Detta är "single source of truth" i koden. Varje token motsvarar en
+   VARIABEL i Figma med samma namn och värde. Komponenterna använder ENDAST
+   dessa tokens – aldrig hårdkodade värden.
+
+   Uppdatera den här filen när Figma-variablerna ändras (se "Figma-workflow").
+   ========================================================================= */
+
+:root {
+  /* ---------------------------------------------------------------------
+     VARUMÄRKE (grafisk manual 4.0)
+     --------------------------------------------------------------------- */
+  --color-accent-yellow:     #eade42; /* citrongul */
+  --color-accent-active-tab: #eade42; /* aktiv flik */
+  --brand-green:             #c0b740; /* äppelgrön */
+  --brand-olive:             #858412; /* olivgrön */
+  --brand-dove:              #82949c; /* duvblå */
+  --black:                   #1d1d1d;
+
+  /* ---------------------------------------------------------------------
+     BAKGRUND / YTOR
+     --------------------------------------------------------------------- */
+  --color-bg-canvas:       #ffffff;
+  --color-bg-surface:      #ffffff;
+  --color-bg-subtle:       #fafafa;
+  --color-bg-muted:        #f3f3f3;
+  --color-bg-row-selected: #eff4f6;
+  --color-bg-inverse:      #1d1d1d;
+  --color-bg-disabled:     #f3f3f3;
+
+  /* ---------------------------------------------------------------------
+     TEXT
+     --------------------------------------------------------------------- */
+  --color-text-primary:     #1d1d1d;
+  --color-text-secondary:   #616161;
+  --color-text-tertiary:    #888888;
+  --color-text-placeholder: #a0a0a0;
+  --color-text-disabled:    #afafaf;
+  --color-text-link:        #256eb9;
+  --color-text-inverse:     #ffffff;
+
+  /* ---------------------------------------------------------------------
+     KANTLINJER
+     --------------------------------------------------------------------- */
+  --color-border-default:  #c8c8c8;
+  --color-border-strong:   #afafaf;
+  --color-border-focus:    #256eb9;
+  --color-border-error:    #e93e3e;
+  --color-border-disabled: #c8c8c8;
+
+  /* ---------------------------------------------------------------------
+     ACTION (knappar, interaktion)
+     --------------------------------------------------------------------- */
+  --color-action-primary:        #256eb9;
+  --color-action-primary-hover:  #2264a8;
+  --color-action-primary-active: #1a4e83;
+  --color-action-on-primary:     #ffffff;
+
+  --color-action-secondary-bg:     #ffffff;
+  --color-action-secondary-fg:     #256eb9;
+  --color-action-secondary-border: #256eb9;
+  --color-action-secondary-hover:  #e9f1f8;
+
+  --color-action-focus-ring:   #bbd2e9;
+  --color-action-disabled-bg:  #c8c8c8;
+  --color-action-disabled-fg:  #a0a0a0;
+
+  /* ---------------------------------------------------------------------
+     STATUS (info / success / warning / error / pending)
+     Varje status har: fördergrund + bakgrund (-bg) + kantlinje (-border)
+     --------------------------------------------------------------------- */
+  --color-status-info:           #256eb9;
+  --color-status-info-bg:        #e9f1f8;
+  --color-status-info-border:    #9bbcdf;
+
+  --color-status-success:        #097151;
+  --color-status-success-bg:     #e7f2ee;
+  --color-status-success-border: #8ec3b3;
+
+  --color-status-warning:        #b58406;
+  --color-status-warning-bg:     #fff8e6;
+  --color-status-warning-border: #ffdf8d;
+
+  --color-status-error:          #e93e3e;
+  --color-status-error-bg:       #fdecec;
+  --color-status-error-border:   #f5a6a6;
+
+  --color-status-pending:        #393939;
+  --color-status-pending-bg:     #f8f5c4;
+
+  /* ---------------------------------------------------------------------
+     SPACING (namngiven skala)
+     --------------------------------------------------------------------- */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+
+  /* ---------------------------------------------------------------------
+     RADIUS
+     --------------------------------------------------------------------- */
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+  --radius-full: 9999px;
+
+  /* ---------------------------------------------------------------------
+     TYPOGRAFI – Poppins. Varje stil = storlek + line-height (+ letter-spacing).
+     --------------------------------------------------------------------- */
+  --font-family: 'Poppins', Arial, sans-serif;
+
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* Heading */
+  --font-h1-size: 2rem;      --font-h1-lh: 2.5rem;   --font-h1-ls: -1.5px; /* 32/40 */
+  --font-h2-size: 1.5rem;    --font-h2-lh: 2rem;     --font-h2-ls: -1px;   /* 24/32 */
+  --font-h3-size: 1.25rem;   --font-h3-lh: 1.75rem;  --font-h3-ls: -0.5px; /* 20/28 */
+  --font-h4-size: 1.125rem;  --font-h4-lh: 1.625rem;                       /* 18/26 */
+  --font-h5-size: 1rem;      --font-h5-lh: 1.5rem;                         /* 16/24 */
+  --font-h6-size: 0.875rem;  --font-h6-lh: 1.25rem;                        /* 14/20 */
+
+  /* Body */
+  --font-body-lg-size: 1rem;      --font-body-lg-lh: 1.5rem;    /* 16/24 */
+  --font-body-md-size: 0.875rem;  --font-body-md-lh: 1.375rem;  /* 14/22 */
+  --font-body-sm-size: 0.8125rem; --font-body-sm-lh: 1.25rem;   /* 13/20 */
+
+  /* Etiketter & övrigt */
+  --font-label-size:   0.875rem;  --font-label-lh:   1.25rem;                      /* 14/20, weight 500 */
+  --font-caption-size: 0.75rem;   --font-caption-lh: 1rem;     --font-caption-ls: 0.2px; /* 12/16 */
+  --font-button-size:  0.875rem;  --font-button-lh:  1.25rem;  --font-button-ls:  0.2px; /* 14/20, weight 500 */
+  --font-link-size:    0.875rem;  --font-link-lh:    1.375rem;                     /* 14/22, weight 500 */
+
+  /* ---------------------------------------------------------------------
+     SKUGGOR
+     --------------------------------------------------------------------- */
+  --shadow-sm: 0 1px 2px rgba(15, 20, 25, 0.06), 0 1px 3px rgba(15, 20, 25, 0.10);
+  --shadow-md: 0 2px 4px -2px rgba(15, 20, 25, 0.06), 0 4px 8px -2px rgba(15, 20, 25, 0.10);
+}

@@ -1,0 +1,94 @@
+.npa-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-family);
+  font-size: var(--font-body-md-size);
+  line-height: var(--font-body-md-lh);
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+/* Native input göms visuellt men finns kvar för skärmläsare/tangentbord. */
+.npa-checkbox__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.npa-checkbox__box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  background: var(--color-bg-surface);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Bocken (default dold) */
+.npa-checkbox__box::after {
+  content: '';
+  width: 5px;
+  height: 9px;
+  border: solid var(--color-action-on-primary);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-bottom: 2px;
+  opacity: 0;
+}
+
+/* Hover på urkryssad ruta → blå ram */
+.npa-checkbox:hover
+  .npa-checkbox__input:not(:checked):not(:indeterminate):not(:disabled)
+  + .npa-checkbox__box {
+  border-color: var(--color-border-focus);
+}
+
+/* Ikryssad ELLER delvis vald → fylld blå ruta */
+.npa-checkbox__input:checked + .npa-checkbox__box,
+.npa-checkbox__input:indeterminate + .npa-checkbox__box {
+  background: var(--color-action-primary);
+  border-color: var(--color-action-primary);
+}
+.npa-checkbox__input:checked + .npa-checkbox__box::after {
+  opacity: 1;
+}
+
+/* Delvis vald → vågrätt streck istället för bock */
+.npa-checkbox__input:indeterminate + .npa-checkbox__box::after {
+  content: '';
+  width: 9px;
+  height: 2px;
+  border: none;
+  background: var(--color-action-on-primary);
+  transform: none;
+  margin: 0;
+  opacity: 1;
+}
+
+/* Tangentbordsfokus */
+.npa-checkbox__input:focus-visible + .npa-checkbox__box {
+  outline: 2px solid var(--color-action-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Inaktiverad */
+.npa-checkbox__input:disabled + .npa-checkbox__box {
+  background: var(--color-bg-disabled);
+  border-color: var(--color-border-disabled);
+}
+.npa-checkbox__input:disabled:checked + .npa-checkbox__box,
+.npa-checkbox__input:disabled:indeterminate + .npa-checkbox__box {
+  background: var(--color-action-disabled-bg);
+  border-color: var(--color-action-disabled-bg);
+}
+.npa-checkbox:has(.npa-checkbox__input:disabled) {
+  opacity: 0.8;
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}

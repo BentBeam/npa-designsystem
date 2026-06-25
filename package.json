@@ -1,0 +1,15 @@
+{
+  "name": "npa-monorepo",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "storybook": "npm run storybook --workspace @npa/design-system",
+    "build:ds": "npm run build --workspace @npa/design-system",
+    "dev:demo": "npm run dev --workspace demo",
+    "build:demo": "npm run build --workspace demo"
+  }
+}

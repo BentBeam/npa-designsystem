@@ -1,0 +1,92 @@
+.npa-tooltip {
+  position: relative;
+  display: inline-flex;
+  border-radius: var(--radius-sm);
+}
+.npa-tooltip:focus-visible {
+  outline: 2px solid var(--color-action-focus-ring);
+  outline-offset: 2px;
+}
+
+.npa-tooltip__bubble {
+  position: absolute;
+  z-index: 10;
+  width: max-content;
+  max-width: 220px;
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  font-family: var(--font-family);
+  font-size: var(--font-body-sm-size);
+  line-height: var(--font-body-sm-lh);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  /* Dold tills hover/fokus */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+}
+
+/* Visa vid hover på elementet eller tangentbordsfokus */
+.npa-tooltip:hover .npa-tooltip__bubble,
+.npa-tooltip:focus-within .npa-tooltip__bubble {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Liten pil som pekar mot elementet */
+.npa-tooltip__bubble::after {
+  content: '';
+  position: absolute;
+  border: 5px solid transparent;
+}
+
+/* --- Placeringar --- */
+.npa-tooltip__bubble--top {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.npa-tooltip__bubble--top::after {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top-color: var(--color-bg-inverse);
+}
+
+.npa-tooltip__bubble--bottom {
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.npa-tooltip__bubble--bottom::after {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-color: var(--color-bg-inverse);
+}
+
+.npa-tooltip__bubble--left {
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.npa-tooltip__bubble--left::after {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left-color: var(--color-bg-inverse);
+}
+
+.npa-tooltip__bubble--right {
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.npa-tooltip__bubble--right::after {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-right-color: var(--color-bg-inverse);
+}

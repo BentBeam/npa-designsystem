@@ -1,0 +1,128 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Kom igång/Design Tokens" />
+
+export const Swatch = ({ token, name }) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
+    <div
+      style={{
+        width: 56, height: 40, borderRadius: 8,
+        background: `var(${token})`,
+        border: '1px solid var(--color-border-default)',
+        flexShrink: 0,
+      }}
+    />
+    <div style={{ fontFamily: 'var(--font-family)' }}>
+      <code style={{ fontWeight: 600 }}>{token}</code>
+      {name && <div style={{ fontSize: 13, color: 'var(--color-text-secondary)' }}>{name}</div>}
+    </div>
+  </div>
+)
+
+export const Row = ({ children }) => (
+  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 12 }}>
+    {children}
+  </div>
+)
+
+# Design Tokens
+
+Tokens är designsystemets DNA. Den här sidan är en **exakt spegel av
+variablerna i NPA:s Figma-bibliotek**. Komponenterna använder dessa tokens –
+aldrig hårdkodade värden – så att en ändring i Figma kan speglas på ett enda
+ställe i koden (`src/styles/tokens.css`).
+
+## Action (interaktion)
+
+<Row>
+  <Swatch token="--color-action-primary" name="Primär – #256eb9" />
+  <Swatch token="--color-action-primary-hover" name="Hover" />
+  <Swatch token="--color-action-primary-active" name="Active" />
+  <Swatch token="--color-action-secondary-border" name="Sekundär kant/text" />
+  <Swatch token="--color-action-secondary-hover" name="Sekundär hover" />
+  <Swatch token="--color-action-focus-ring" name="Fokusring" />
+  <Swatch token="--color-action-disabled-bg" name="Inaktiverad" />
+</Row>
+
+## Status
+
+<Row>
+  <Swatch token="--color-status-info" name="Info" />
+  <Swatch token="--color-status-success" name="Lyckat – #097151" />
+  <Swatch token="--color-status-warning" name="Varning – #b58406" />
+  <Swatch token="--color-status-error" name="Fel – #e93e3e" />
+  <Swatch token="--color-status-pending" name="Väntar" />
+</Row>
+
+Bakgrunder för status (ljusa ytor till meddelanden/badges):
+
+<Row>
+  <Swatch token="--color-status-info-bg" name="Info bg" />
+  <Swatch token="--color-status-success-bg" name="Success bg" />
+  <Swatch token="--color-status-warning-bg" name="Warning bg" />
+  <Swatch token="--color-status-error-bg" name="Error bg" />
+  <Swatch token="--color-status-pending-bg" name="Pending bg" />
+</Row>
+
+## Text
+
+<Row>
+  <Swatch token="--color-text-primary" name="Primär" />
+  <Swatch token="--color-text-secondary" name="Sekundär" />
+  <Swatch token="--color-text-tertiary" name="Tertiär" />
+  <Swatch token="--color-text-link" name="Länk" />
+</Row>
+
+## Bakgrund & kantlinjer
+
+<Row>
+  <Swatch token="--color-bg-canvas" name="Canvas" />
+  <Swatch token="--color-bg-subtle" name="Subtil" />
+  <Swatch token="--color-bg-muted" name="Muted" />
+  <Swatch token="--color-bg-row-selected" name="Vald rad" />
+  <Swatch token="--color-border-default" name="Kant default" />
+  <Swatch token="--color-border-strong" name="Kant stark" />
+</Row>
+
+## Varumärke (grafisk manual)
+
+<Row>
+  <Swatch token="--color-accent-yellow" name="Citrongul – #eade42" />
+  <Swatch token="--brand-green" name="Äppelgrön" />
+  <Swatch token="--brand-olive" name="Olivgrön" />
+  <Swatch token="--brand-dove" name="Duvblå" />
+</Row>
+
+## Typografi – Poppins
+
+<div style={{ fontFamily: 'var(--font-family)' }}>
+  <p style={{ fontSize: 'var(--font-h1-size)', lineHeight: 'var(--font-h1-lh)', letterSpacing: 'var(--font-h1-ls)', fontWeight: 700, margin: '8px 0' }}>H1 – 32 / Bold</p>
+  <p style={{ fontSize: 'var(--font-h2-size)', lineHeight: 'var(--font-h2-lh)', letterSpacing: 'var(--font-h2-ls)', fontWeight: 600, margin: '8px 0' }}>H2 – 24 / SemiBold</p>
+  <p style={{ fontSize: 'var(--font-h3-size)', lineHeight: 'var(--font-h3-lh)', letterSpacing: 'var(--font-h3-ls)', fontWeight: 600, margin: '8px 0' }}>H3 – 20 / SemiBold</p>
+  <p style={{ fontSize: 'var(--font-h4-size)', lineHeight: 'var(--font-h4-lh)', fontWeight: 600, margin: '8px 0' }}>H4 – 18 / SemiBold</p>
+  <p style={{ fontSize: 'var(--font-body-lg-size)', lineHeight: 'var(--font-body-lg-lh)', margin: '8px 0' }}>Body Large – 16 / Regular</p>
+  <p style={{ fontSize: 'var(--font-body-md-size)', lineHeight: 'var(--font-body-md-lh)', margin: '8px 0' }}>Body Medium – 14 / Regular</p>
+  <p style={{ fontSize: 'var(--font-caption-size)', lineHeight: 'var(--font-caption-lh)', letterSpacing: 'var(--font-caption-ls)', color: 'var(--color-text-secondary)', margin: '8px 0' }}>Caption – 12 / Regular</p>
+</div>
+
+## Avstånd (spacing)
+
+<div style={{ fontFamily: 'var(--font-family)' }}>
+  {['--spacing-xs','--spacing-sm','--spacing-md','--spacing-lg','--spacing-xl'].map((t) => (
+    <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6 }}>
+      <div style={{ height: 16, width: `var(${t})`, background: 'var(--color-action-primary)', borderRadius: 2 }} />
+      <code>{t}</code>
+    </div>
+  ))}
+</div>
+
+## Hörnradier
+
+<div style={{ display: 'flex', gap: 16 }}>
+  {['--radius-sm','--radius-md','--radius-lg'].map((t) => (
+    <div key={t} style={{ textAlign: 'center', fontFamily: 'var(--font-family)' }}>
+      <div style={{ width: 72, height: 56, background: 'var(--color-action-secondary-hover)', border: '2px solid var(--color-action-primary)', borderRadius: `var(${t})` }} />
+      <code style={{ fontSize: 13 }}>{t}</code>
+    </div>
+  ))}
+</div>

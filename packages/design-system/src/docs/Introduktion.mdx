@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Kom igång/Introduktion" />
+
+# NPA Designsystem
+
+Välkommen! Det här är NPA:s designsystem i Storybook. Här bor alla
+återanvändbara komponenter, deras dokumentation och de design tokens
+(färger, typografi, avstånd) som håller allt enhetligt.
+
+## Varför ett designsystem?
+
+- **Enhetligt** – alla projekt använder samma knappar, färger och avstånd.
+- **Snabbare** – bygg en gång, återanvänd överallt.
+- **En sanning** – ändrar du en token ändras hela systemet, precis som i Figma.
+
+## Så är det uppbyggt
+
+| Lager | Vad | Var |
+|-------|-----|-----|
+| **Design tokens** | Råvärden: färg, typografi, spacing, radius | `src/styles/tokens.css` |
+| **Komponenter** | Återanvändbara byggstenar (Button, Card …) | `src/components/` |
+| **Stories** | Exempel/varianter du ser live i Storybook | `*.stories.tsx` |
+| **Docs** | Den här typen av dokumentation | `src/docs/` |
+
+## Hitta runt
+
+- **Design Tokens** – se hela paletten, typografin och avstånden visuellt.
+- **Figma-workflow** – hur en design i Figma blir en komponent här.
+- **Komponenter** – varje komponent har flera *stories* (varianter) och en
+  *Docs*-flik med en automatisk prop-tabell.
+
+## Bra att veta
+
+Under varje komponent finns två lägen högst upp:
+
+- **Canvas** – komponenten ensam, med **Controls**-panelen där du kan
+  ändra props (t.ex. variant och storlek) live.
+- **Docs** – en sammanställd sida med beskrivning, alla varianter och
+  en tabell över vilka props som finns.
+
+Panelen **Accessibility** (a11y) längst ner flaggar automatiskt
+tillgänglighetsproblem som låg kontrast – guld värt för en designer.

@@ -1,0 +1,83 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Kom igång/Figma-workflow" />
+
+# Workflow: Figma → Storybook
+
+Så här flödar en komponent från design till kod, och hålls i synk över tid.
+Tanken är att **Figma och Storybook beskriver samma sak** – Figma är där du
+designar, Storybook är där det blir levande, dokumenterad kod.
+
+## Den gyllene regeln: tokens först
+
+Allt börjar med **design tokens**. I Figma är de *variabler* (Color, Spacing,
+Radius). Här är de CSS-variabler i `src/styles/tokens.css`. De ska ha **samma
+namn och värden**. Får du till det här blir resten enkelt.
+
+```
+Figma-variabel              →   CSS-token (samma namn!)
+--color-action-primary      →   --color-action-primary
+--spacing-lg                →   --spacing-lg
+--radius-md                 →   --radius-md
+```
+
+> NPA:s Figma-variabler är redan namngivna som CSS-variabler (t.ex.
+> `--color-action-primary`). Det gör synken nästan 1:1 – värdena i
+> `tokens.css` är hämtade direkt ur biblioteket.
+
+## Steg för steg
+
+### 1. Designa i Figma med variabler & komponenter
+Bygg komponenten av befintliga variabler och stilar – inte lösa hex-koder.
+Definiera varianter med Figmas **Component Properties** (t.ex. `variant`,
+`size`, `state`). De motsvarar direkt komponentens *props* i koden.
+
+### 2. Synka tokens
+När en variabel ändras eller läggs till i Figma: uppdatera `tokens.css` så
+värdena matchar. Detta är det enda stället färgvärden får bo.
+> 💡 Jag (Claude) kan läsa variablerna direkt ur ert Figma-bibliotek via
+> Figma-kopplingen och uppdatera `tokens.css` exakt – be mig bara om det.
+
+### 3. Bygg/uppdatera komponenten
+Skapa en mapp i `src/components/`. Komponenten använder **bara tokens**.
+Varje Figma-variant blir ett värde i en prop (`variant="primary"`).
+
+### 4. Skriv stories
+En story per viktig variant/tillstånd – samma som artboards i Figma.
+`tags: ['autodocs']` ger automatiskt en dokumentationssida med prop-tabell.
+
+### 5. Granska
+- **Canvas + Controls**: klicka runt och jämför mot Figma-designen.
+- **Accessibility-panelen**: fångar kontrast- och tillgänglighetsproblem.
+- Byt bakgrund i verktygsraden för att testa mot NPA:s ytfärger.
+
+## Vad matchar vad
+
+| I Figma | I Storybook / koden |
+|---------|---------------------|
+| Variabel (Color/Spacing/Radius) | CSS-token i `tokens.css` |
+| Textstil | `--font-size-*`, `--font-weight-*` |
+| Komponent | Komponent i `src/components/` |
+| Component Property (variant/size) | Prop (`variant`, `size`) |
+| Variant (artboard) | Story (`export const Primary`) |
+| Beskrivning i Figma | JSDoc-kommentar → prop-tabell |
+
+## Hålla det i synk över tid
+
+Två mognadsnivåer:
+
+1. **Manuellt (här och nu):** designern uppdaterar Figma, någon (eller jag)
+   speglar ändringen i `tokens.css`/komponenten. Fullt tillräckligt för start.
+2. **Automatiserat (senare):**
+   - **Figma Code Connect** – kopplar en Figma-komponent till dess kod, så
+     utvecklare ser exakt rätt kodsnutt i Figmas Dev Mode.
+   - **Token-export** – verktyg (t.ex. Style Dictionary / Tokens Studio) kan
+     exportera Figma-variabler till CSS automatiskt.
+
+## Tumregler
+
+- 🎯 **En sanning per sak.** Färgen #256EB9 skrivs *en* gång (`--blue-500`).
+- 🧩 **Komponenter rör aldrig råa värden** – alltid via en token.
+- 📝 **Dokumentera i koden** (JSDoc) så uppdateras prop-tabellen automatiskt.
+- ♿ **Kolla a11y-panelen** innan en komponent anses klar.
+- 🔁 **Tokens först, komponent sen, story sist.**

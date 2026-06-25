@@ -1,0 +1,52 @@
+.npa-tabs {
+  font-family: var(--font-family);
+  max-width: 640px;
+}
+
+/* Flikraden – pills bredvid varandra, ingen underkantslinje (matchar Figma) */
+.npa-tabs__list {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+}
+
+.npa-tabs__tab {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family);
+  font-size: var(--font-body-md-size);
+  line-height: 20px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Hover = grå pill */
+.npa-tabs__tab:hover {
+  background: var(--color-bg-muted);
+  color: var(--color-text-primary);
+}
+
+/* Aktiv = NPA:s gula pill + mörk fet text */
+.npa-tabs__tab--active,
+.npa-tabs__tab--active:hover {
+  background: var(--color-accent-active-tab);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.npa-tabs__tab:focus-visible {
+  outline: 2px solid var(--color-action-focus-ring);
+  outline-offset: 2px;
+}
+
+.npa-tabs__panel {
+  padding: var(--spacing-lg) var(--spacing-xs);
+  font-size: var(--font-body-md-size);
+  line-height: var(--font-body-md-lh);
+  color: var(--color-text-primary);
+}
