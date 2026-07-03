@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -14,37 +16,43 @@
     },
     "./styles.css": "./dist/npa-design-system.css"
   },
-  "sideEffects": ["**/*.css"],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
     "build": "vite build --config vite.lib.config.ts && tsc -p tsconfig.lib.json",
     "lint": "oxlint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "figma:validate": "figma connect --help > /dev/null && figma connect parse src/components/**/*.figma.tsx 2>&1 || figma connect validate 2>&1",
+    "figma:publish": "figma connect publish",
+    "figma:unpublish": "figma connect unpublish"
   },
   "peerDependencies": {
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^5.2.1",
+    "@figma/code-connect": "^1.4.8",
+    "@storybook/addon-a11y": "^10.4.6",
+    "@storybook/addon-docs": "^10.4.6",
+    "@storybook/addon-mcp": "^0.6.0",
+    "@storybook/addon-vitest": "^10.4.6",
+    "@storybook/react-vite": "^10.4.6",
     "@types/node": "^24.13.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.2",
+    "@vitest/browser-playwright": "^4.1.9",
+    "@vitest/coverage-v8": "^4.1.9",
     "oxlint": "^1.69.0",
+    "playwright": "^1.61.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
+    "storybook": "^10.4.6",
     "typescript": "~6.0.2",
     "vite": "^8.1.0",
-    "storybook": "^10.4.6",
-    "@storybook/react-vite": "^10.4.6",
-    "@chromatic-com/storybook": "^5.2.1",
-    "@storybook/addon-vitest": "^10.4.6",
-    "@storybook/addon-a11y": "^10.4.6",
-    "@storybook/addon-docs": "^10.4.6",
-    "@storybook/addon-mcp": "^0.6.0",
-    "vitest": "^4.1.9",
-    "playwright": "^1.61.1",
-    "@vitest/browser-playwright": "^4.1.9",
-    "@vitest/coverage-v8": "^4.1.9"
+    "vitest": "^4.1.9"
   }
 }
