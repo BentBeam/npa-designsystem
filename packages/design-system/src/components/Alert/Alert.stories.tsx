@@ -12,7 +12,7 @@ const meta = {
         component:
           'Meddelanderuta för bekräftelser, varningar och fel. Innehållet ' +
           'skickas som `children`, så du kan lägga in text, länkar eller listor.\n\n' +
-          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-ng-test/blob/main/packages/design-system/src/components/Alert/Alert.tsx)',
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-eval-designsystem/blob/main/packages/design-system/src/components/Alert/Alert.tsx)',
       },
     },
   },

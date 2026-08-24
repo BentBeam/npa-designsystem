@@ -14,7 +14,7 @@ const meta = {
         component:
           'Flerradigt textfält för längre fritext. Delar fält-mönster och states ' +
           '(default, focus, disabled, error) med Input.\n\n' +
-          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-ng-test/blob/main/packages/design-system/src/components/Textarea/Textarea.tsx)',
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-eval-designsystem/blob/main/packages/design-system/src/components/Textarea/Textarea.tsx)',
       },
     },
   },

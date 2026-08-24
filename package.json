@@ -7,8 +7,8 @@
     "apps/*"
   ],
   "scripts": {
-    "storybook": "npm run storybook --workspace npa-ng-test",
-    "build:ds": "npm run build --workspace npa-ng-test",
+    "storybook": "npm run storybook --workspace npa-eval-designsystem",
+    "build:ds": "npm run build --workspace npa-eval-designsystem",
     "dev:demo": "npm run dev --workspace demo",
     "build:demo": "npm run build --workspace demo"
   }

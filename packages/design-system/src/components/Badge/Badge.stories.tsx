@@ -11,7 +11,7 @@ const meta = {
       description: {
         component:
           'Liten etikett för status eller kategori. Färgen styrs av `status`.\n\n' +
-          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-ng-test/blob/main/packages/design-system/src/components/Badge/Badge.tsx)',
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-eval-designsystem/blob/main/packages/design-system/src/components/Badge/Badge.tsx)',
       },
     },
   },
