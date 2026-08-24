@@ -20,7 +20,7 @@ const meta = {
           'Grupp av radioknappar för att välja **ett** alternativ. Hela gruppen ' +
           'ligger i en fieldset/legend och knapparna delar namn för korrekt ' +
           'tangentbords- och skärmläsarstöd.\n\n' +
-          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-designsystem/blob/main/packages/design-system/src/components/Radio/RadioGroup.tsx)',
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-ng-test/blob/main/packages/design-system/src/components/Radio/RadioGroup.tsx)',
       },
     },
   },

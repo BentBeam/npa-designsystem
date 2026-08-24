@@ -11,7 +11,7 @@ void instance
 
 export default {
   example: figma.code`<BananaButton ariaLabel="Banan-knapp" />`,
-  imports: ['import { BananaButton } from "@npa/design-system"'],
+  imports: ['import { BananaButton } from "npa-ng-test"'],
   id: 'banana-button',
   metadata: {
     nestable: true,

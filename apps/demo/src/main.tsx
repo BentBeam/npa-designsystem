@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 // Designsystemets stilar (tokens + Poppins + komponent-CSS) – importeras EN gång.
-import '@npa/design-system/styles.css'
+import 'npa-ng-test/styles.css'
 
 import { App } from './App'
 

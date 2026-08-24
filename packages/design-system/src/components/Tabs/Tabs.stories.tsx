@@ -12,7 +12,7 @@ const meta = {
         component:
           'Flikar för att växla mellan vyer. Aktiv flik markeras med NPA:s gula ' +
           'accent. Stödjer vänster/höger piltangenter och korrekta ARIA-roller.\n\n' +
-          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-designsystem/blob/main/packages/design-system/src/components/Tabs/Tabs.tsx)',
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-ng-test/blob/main/packages/design-system/src/components/Tabs/Tabs.tsx)',
       },
     },
   },

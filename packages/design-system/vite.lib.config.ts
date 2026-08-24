@@ -16,8 +16,8 @@ export default defineConfig({
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
-        // Samlad CSS-fil: dist/npa-design-system.css
-        assetFileNames: 'npa-design-system.[ext]',
+        // Samlad CSS-fil: dist/npa-ng-test.css
+        assetFileNames: 'npa-ng-test.[ext]',
       },
     },
     outDir: 'dist',

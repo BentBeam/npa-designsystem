@@ -12,10 +12,10 @@ import {
   Textarea,
   Toggle,
   Tooltip,
-} from '@npa/design-system'
+} from 'npa-ng-test'
 
 /**
- * Liten demo-app som använder komponenterna från @npa/design-system.
+ * Liten demo-app som använder komponenterna från npa-ng-test.
  * All styling kommer från designsystemets tokens (importerade i main.tsx).
  */
 export function App() {

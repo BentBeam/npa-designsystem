@@ -1,10 +1,10 @@
 /* =========================================================================
    NPA Design System – paketets publika API.
-   Allt som ska gå att importera från "@npa/design-system" exporteras här.
+   Allt som ska gå att importera från "npa-ng-test" exporteras här.
 
    Vi importerar även global.css (tokens + Poppins) så att den hamnar i
    paketets CSS-bundle. Konsumenten importerar den en gång via
-   "@npa/design-system/styles.css".
+   "npa-ng-test/styles.css".
    ========================================================================= */
 
 import './styles/global.css'

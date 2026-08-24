@@ -14,7 +14,7 @@ const meta = {
           'Kort förklarande text som visas vid hover eller tangentbordsfokus. ' +
           'Kopplas till sitt element via `aria-describedby`. Använd för korta ' +
           'förtydliganden – inte för information som måste läsas.\n\n' +
-          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-designsystem/blob/main/packages/design-system/src/components/Tooltip/Tooltip.tsx)',
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-ng-test/blob/main/packages/design-system/src/components/Tooltip/Tooltip.tsx)',
       },
     },
   },
