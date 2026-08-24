@@ -13,7 +13,8 @@ const meta = {
       description: {
         component:
           'Behållare som grupperar innehåll. Visar hur komponenter kan ' +
-          'sättas ihop – här med en Badge i innehållet och Buttons i sidfoten.',
+          'sättas ihop – här med en Badge i innehållet och Buttons i sidfoten.\n\n' +
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-designsystem/blob/main/packages/design-system/src/components/Card/Card.tsx)',
       },
     },
   },

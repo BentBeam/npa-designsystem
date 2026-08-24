@@ -13,7 +13,8 @@ const meta = {
       description: {
         component:
           'Reglage (switch) för inställningar som träder i kraft direkt. ' +
-          'Har `role="switch"` för korrekt skärmläsarstöd.',
+          'Har `role="switch"` för korrekt skärmläsarstöd.\n\n' +
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-designsystem/blob/main/packages/design-system/src/components/Toggle/Toggle.tsx)',
       },
     },
   },

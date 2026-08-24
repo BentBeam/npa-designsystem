@@ -13,7 +13,8 @@ const meta = {
       description: {
         component:
           'Kryssruta för av/på-val. Den blå fyllningen och bocken kommer från ' +
-          'tokens. `indeterminate` används för en förälder med blandade barn.',
+          'tokens. `indeterminate` används för en förälder med blandade barn.\n\n' +
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-designsystem/blob/main/packages/design-system/src/components/Checkbox/Checkbox.tsx)',
       },
     },
   },

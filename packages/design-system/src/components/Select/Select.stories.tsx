@@ -20,7 +20,8 @@ const meta = {
       description: {
         component:
           'Rullgardinsmeny byggd på en native `<select>` för bästa tillgänglighet, ' +
-          'med NPA-styling och samma fält-mönster (etikett, hjälptext, fel) som Input.',
+          'med NPA-styling och samma fält-mönster (etikett, hjälptext, fel) som Input.\n\n' +
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-designsystem/blob/main/packages/design-system/src/components/Select/Select.tsx)',
       },
     },
   },

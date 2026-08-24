@@ -9,7 +9,9 @@ const meta = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Liten etikett för status eller kategori. Färgen styrs av `status`.',
+        component:
+          'Liten etikett för status eller kategori. Färgen styrs av `status`.\n\n' +
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-designsystem/blob/main/packages/design-system/src/components/Badge/Badge.tsx)',
       },
     },
   },

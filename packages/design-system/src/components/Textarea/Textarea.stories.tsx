@@ -13,7 +13,8 @@ const meta = {
       description: {
         component:
           'Flerradigt textfält för längre fritext. Delar fält-mönster och states ' +
-          '(default, focus, disabled, error) med Input.',
+          '(default, focus, disabled, error) med Input.\n\n' +
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-designsystem/blob/main/packages/design-system/src/components/Textarea/Textarea.tsx)',
       },
     },
   },

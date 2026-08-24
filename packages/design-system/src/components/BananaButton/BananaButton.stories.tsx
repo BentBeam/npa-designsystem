@@ -12,7 +12,8 @@ const meta = {
       description: {
         component:
           'En lekfull ikon-knapp – bananen byter färg från gul till blå vid hover. ' +
-          'Har ingen synlig text, så `ariaLabel` krävs för skärmläsare.',
+          'Har ingen synlig text, så `ariaLabel` krävs för skärmläsare.\n\n' +
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-designsystem/blob/main/packages/design-system/src/components/BananaButton/BananaButton.tsx)',
       },
     },
   },

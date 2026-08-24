@@ -19,7 +19,8 @@ const meta = {
         component:
           'Knappen är NPA:s primära interaktionselement. Den bygger helt på ' +
           'design tokens, så färger och avstånd följer automatiskt med om temat ' +
-          'ändras. Välj **variant** efter hur viktig handlingen är.',
+          'ändras. Välj **variant** efter hur viktig handlingen är.\n\n' +
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-designsystem/blob/main/packages/design-system/src/components/Button/Button.tsx)',
       },
     },
   },

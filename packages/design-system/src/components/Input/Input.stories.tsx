@@ -14,7 +14,8 @@ const meta = {
         component:
           'Textfält för formulär med etikett, hjälptext och fel-tillstånd. ' +
           'Fokus- och felfärger kommer från tokens, och fältet är kopplat till ' +
-          'sin etikett och sitt felmeddelande för skärmläsare.',
+          'sin etikett och sitt felmeddelande för skärmläsare.\n\n' +
+          '[Visa källkod på GitHub](https://github.com/BentBeam/npa-designsystem/blob/main/packages/design-system/src/components/Input/Input.tsx)',
       },
     },
   },
