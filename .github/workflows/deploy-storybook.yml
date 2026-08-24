@@ -35,7 +35,7 @@ jobs:
         run: npm ci
 
       - name: Bygg Storybook
-        run: npm run build-storybook --workspace npa-eval-designsystem
+        run: npm run build-storybook --workspace @npa-eval/designsystem
 
       - name: Ladda upp som Pages-artefakt
         uses: actions/upload-pages-artifact@v3

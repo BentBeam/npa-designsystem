@@ -1,7 +1,24 @@
 {
-  "name": "npa-eval-designsystem",
+  "name": "@npa-eval/designsystem",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
+  "description": "NPA:s designsystem – React-komponenter byggda på design tokens från NPA:s Figma-bibliotek.",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BentBeam/npa-eval-designsystem.git",
+    "directory": "packages/design-system"
+  },
+  "homepage": "https://bentbeam.github.io/npa-eval-designsystem/",
+  "keywords": [
+    "design-system",
+    "react",
+    "npa",
+    "figma-make-kit"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "files": [
     "dist"

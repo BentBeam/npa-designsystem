@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "npa-eval-designsystem": "*",
+    "@npa-eval/designsystem": "*",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
