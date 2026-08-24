@@ -16,9 +16,6 @@
     "npa",
     "figma-make-kit"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "type": "module",
   "files": [
     "dist"

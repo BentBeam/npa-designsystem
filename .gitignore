@@ -25,3 +25,6 @@ dist-ssr
 
 *storybook.log
 storybook-static
+
+# npm-auth mot Figmas privata registry – innehåller en token, får ALDRIG committas
+.npmrc
