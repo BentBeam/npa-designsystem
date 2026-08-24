@@ -1,0 +1,131 @@
+/* =========================================================================
+   TAILWIND ↔ DESIGN TOKENS
+   -------------------------------------------------------------------------
+   Registrerar tokens.css hos Tailwind som riktiga utility-klasser
+   (`bg-action-primary`, `text-h1`, `rounded-md`, `p-md` …).
+
+   `@theme inline` innebär att Tailwind INTE skapar egna dubblerade
+   variabler – utility-klasserna pekar direkt på våra `var(--...)` i
+   tokens.css, som förblir "single source of truth".
+   ========================================================================= */
+
+@theme inline {
+  /* --- Typsnitt: Poppins blir Tailwinds standard-sans --- */
+  --font-sans: var(--font-family);
+
+  /* --- Bakgrund / ytor --- */
+  --color-bg-canvas: var(--color-bg-canvas);
+  --color-bg-surface: var(--color-bg-surface);
+  --color-bg-subtle: var(--color-bg-subtle);
+  --color-bg-muted: var(--color-bg-muted);
+  --color-bg-row-selected: var(--color-bg-row-selected);
+  --color-bg-inverse: var(--color-bg-inverse);
+  --color-bg-disabled: var(--color-bg-disabled);
+
+  /* --- Text --- */
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-tertiary: var(--color-text-tertiary);
+  --color-text-placeholder: var(--color-text-placeholder);
+  --color-text-disabled: var(--color-text-disabled);
+  --color-text-link: var(--color-text-link);
+  --color-text-inverse: var(--color-text-inverse);
+
+  /* --- Kantlinjer --- */
+  --color-border-default: var(--color-border-default);
+  --color-border-strong: var(--color-border-strong);
+  --color-border-focus: var(--color-border-focus);
+  --color-border-error: var(--color-border-error);
+  --color-border-disabled: var(--color-border-disabled);
+
+  /* --- Action --- */
+  --color-action-primary: var(--color-action-primary);
+  --color-action-primary-hover: var(--color-action-primary-hover);
+  --color-action-primary-active: var(--color-action-primary-active);
+  --color-action-on-primary: var(--color-action-on-primary);
+  --color-action-secondary-bg: var(--color-action-secondary-bg);
+  --color-action-secondary-fg: var(--color-action-secondary-fg);
+  --color-action-secondary-border: var(--color-action-secondary-border);
+  --color-action-secondary-hover: var(--color-action-secondary-hover);
+  --color-action-focus-ring: var(--color-action-focus-ring);
+  --color-action-disabled-bg: var(--color-action-disabled-bg);
+  --color-action-disabled-fg: var(--color-action-disabled-fg);
+
+  /* --- Status --- */
+  --color-status-info: var(--color-status-info);
+  --color-status-info-bg: var(--color-status-info-bg);
+  --color-status-info-border: var(--color-status-info-border);
+  --color-status-success: var(--color-status-success);
+  --color-status-success-bg: var(--color-status-success-bg);
+  --color-status-success-border: var(--color-status-success-border);
+  --color-status-warning: var(--color-status-warning);
+  --color-status-warning-bg: var(--color-status-warning-bg);
+  --color-status-warning-border: var(--color-status-warning-border);
+  --color-status-error: var(--color-status-error);
+  --color-status-error-bg: var(--color-status-error-bg);
+  --color-status-error-border: var(--color-status-error-border);
+  --color-status-pending: var(--color-status-pending);
+  --color-status-pending-bg: var(--color-status-pending-bg);
+
+  /* --- Accent / varumärke ---
+     "--black" mappas INTE till Tailwinds inbyggda `black` (skulle byta
+     färg på alla `bg-black`/`text-black` i hela appen) – egna namn i stället. */
+  --color-accent-yellow: var(--color-accent-yellow);
+  --color-accent-active-tab: var(--color-accent-active-tab);
+  --color-brand-green: var(--brand-green);
+  --color-brand-olive: var(--brand-olive);
+  --color-brand-dove: var(--brand-dove);
+  --color-ink: var(--black);
+
+  /* --- Spacing (läggs till utöver Tailwinds numeriska skala) --- */
+  --spacing-xs: var(--spacing-xs);
+  --spacing-sm: var(--spacing-sm);
+  --spacing-md: var(--spacing-md);
+  --spacing-lg: var(--spacing-lg);
+  --spacing-xl: var(--spacing-xl);
+
+  /* --- Radius (skriver över Tailwinds default sm/md/lg) --- */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-full: var(--radius-full);
+
+  /* --- Skuggor --- */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+
+  /* --- Typografi: `text-h1`, `text-body-md` osv sätter size + line-height --- */
+  --text-h1: var(--font-h1-size);
+  --text-h1--line-height: var(--font-h1-lh);
+  --text-h2: var(--font-h2-size);
+  --text-h2--line-height: var(--font-h2-lh);
+  --text-h3: var(--font-h3-size);
+  --text-h3--line-height: var(--font-h3-lh);
+  --text-h4: var(--font-h4-size);
+  --text-h4--line-height: var(--font-h4-lh);
+  --text-h5: var(--font-h5-size);
+  --text-h5--line-height: var(--font-h5-lh);
+  --text-h6: var(--font-h6-size);
+  --text-h6--line-height: var(--font-h6-lh);
+  --text-body-lg: var(--font-body-lg-size);
+  --text-body-lg--line-height: var(--font-body-lg-lh);
+  --text-body-md: var(--font-body-md-size);
+  --text-body-md--line-height: var(--font-body-md-lh);
+  --text-body-sm: var(--font-body-sm-size);
+  --text-body-sm--line-height: var(--font-body-sm-lh);
+  --text-label: var(--font-label-size);
+  --text-label--line-height: var(--font-label-lh);
+  --text-caption: var(--font-caption-size);
+  --text-caption--line-height: var(--font-caption-lh);
+  --text-button: var(--font-button-size);
+  --text-button--line-height: var(--font-button-lh);
+  --text-link: var(--font-link-size);
+  --text-link--line-height: var(--font-link-lh);
+
+  /* --- Letter-spacing (bara tokens som faktiskt har ett värde) --- */
+  --tracking-h1: var(--font-h1-ls);
+  --tracking-h2: var(--font-h2-ls);
+  --tracking-h3: var(--font-h3-ls);
+  --tracking-caption: var(--font-caption-ls);
+  --tracking-button: var(--font-button-ls);
+}

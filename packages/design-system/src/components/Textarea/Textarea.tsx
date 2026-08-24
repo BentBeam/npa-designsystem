@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import './Textarea.css'
+import { FIELD_ERROR, FIELD_HELP, FIELD_LABEL, FIELD_REQUIRED, FIELD_WRAPPER } from '../field-classes'
 
 export interface TextareaProps {
   /** Etikett ovanför fältet. */
@@ -40,17 +40,38 @@ export function Textarea({
   const id = useId()
   const describedById = error ? `${id}-error` : helperText ? `${id}-help` : undefined
 
+  /* Felfärg (ram + inset-ring) gäller alltid, oavsett hover/fokus – annars
+     ärvs default-ramens hover/fokus-beteende (se Textarea.css-motsvarigheten). */
+  const textareaClasses = [
+    'font-sans text-body-md text-text-primary bg-bg-surface',
+    'p-md border rounded-md resize-y min-h-[88px]',
+    'placeholder:text-text-placeholder',
+    'transition-[border-color,box-shadow] duration-150',
+    error
+      ? 'border-border-error shadow-[inset_0_0_0_1px_var(--color-border-error)]'
+      : 'border-border-default enabled:hover:border-border-strong ' +
+        'focus:border-border-focus focus:shadow-[inset_0_0_0_1px_var(--color-border-focus)]',
+    'disabled:bg-bg-disabled disabled:text-text-disabled disabled:border-border-disabled disabled:cursor-not-allowed disabled:resize-none',
+  ]
+    .filter(Boolean)
+    .join(' ')
+
   return (
-    <div className="npa-field">
+    <div className={FIELD_WRAPPER}>
       {label && (
-        <label className="npa-field__label" htmlFor={id}>
+        <label className={FIELD_LABEL} htmlFor={id}>
           {label}
-          {required && <span className="npa-field__required" aria-hidden="true"> *</span>}
+          {required && (
+            <span className={FIELD_REQUIRED} aria-hidden="true">
+              {' '}
+              *
+            </span>
+          )}
         </label>
       )}
       <textarea
         id={id}
-        className={`npa-textarea${error ? ' npa-textarea--error' : ''}`}
+        className={textareaClasses}
         placeholder={placeholder}
         disabled={disabled}
         required={required}
@@ -61,12 +82,12 @@ export function Textarea({
         onChange={(e) => onChange?.(e.target.value)}
       />
       {error ? (
-        <p id={`${id}-error`} className="npa-field__error">
+        <p id={`${id}-error`} className={FIELD_ERROR}>
           {error}
         </p>
       ) : (
         helperText && (
-          <p id={`${id}-help`} className="npa-field__help">
+          <p id={`${id}-help`} className={FIELD_HELP}>
             {helperText}
           </p>
         )

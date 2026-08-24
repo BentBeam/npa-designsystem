@@ -1,5 +1,4 @@
 import { useId, useRef, useState, type ReactNode } from 'react'
-import './Tabs.css'
 
 export interface TabItem {
   /** Flikens etikett. */
@@ -13,6 +12,23 @@ export interface TabsProps {
   tabs: TabItem[]
   /** Vilken flik som är aktiv från start (index). */
   defaultIndex?: number
+}
+
+/* Flikens bas-stil. `leading-5` (20px) matchar Figma exakt – det är INTE
+   samma som --font-body-md-lh (22px), som används i panelen nedan.
+   OBS: `background-color` sätts ENDAST i tabStateClasses nedan, aldrig här –
+   två vanliga (icke-variant-prefixade) klasser som båda sätter bg-color har
+   odefinierad inbördes ordning i Tailwinds genererade CSS. */
+const tabBaseClasses =
+  'appearance-none border-none py-md px-lg rounded-md ' +
+  'font-sans text-[length:var(--font-body-md-size)] leading-5 cursor-pointer ' +
+  'transition-colors duration-150'
+
+/* Aktiv = NPA:s gula pill + mörk fet text. Inaktiv = grå hover-pill.
+   (focus-visible-ring hanteras globalt för <button> i global.css.) */
+const tabStateClasses: Record<'active' | 'inactive', string> = {
+  active: 'bg-accent-active-tab text-text-primary font-semibold',
+  inactive: 'bg-transparent text-text-secondary font-medium hover:bg-bg-muted hover:text-text-primary',
 }
 
 /**
@@ -36,8 +52,8 @@ export function Tabs({ tabs, defaultIndex = 0 }: TabsProps) {
   }
 
   return (
-    <div className="npa-tabs">
-      <div className="npa-tabs__list" role="tablist" onKeyDown={handleKeyDown}>
+    <div className="font-sans max-w-[640px]">
+      <div className="flex gap-sm py-sm" role="tablist" onKeyDown={handleKeyDown}>
         {tabs.map((tab, i) => {
           const selected = i === active
           return (
@@ -47,7 +63,7 @@ export function Tabs({ tabs, defaultIndex = 0 }: TabsProps) {
               id={`${baseId}-tab-${i}`}
               role="tab"
               type="button"
-              className={`npa-tabs__tab${selected ? ' npa-tabs__tab--active' : ''}`}
+              className={[tabBaseClasses, tabStateClasses[selected ? 'active' : 'inactive']].join(' ')}
               aria-selected={selected}
               aria-controls={`${baseId}-panel-${i}`}
               tabIndex={selected ? 0 : -1}
@@ -64,7 +80,7 @@ export function Tabs({ tabs, defaultIndex = 0 }: TabsProps) {
           id={`${baseId}-panel-${i}`}
           role="tabpanel"
           aria-labelledby={`${baseId}-tab-${i}`}
-          className="npa-tabs__panel"
+          className="py-lg px-xs text-body-md text-text-primary"
           hidden={i !== active}
         >
           {tab.content}

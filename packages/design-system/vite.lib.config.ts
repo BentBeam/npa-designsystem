@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'node:path'
 
 // Library-bygge: paketerar komponenterna till dist/ för konsumtion i appar.
 // React hålls externt (peer dependency) så appen använder sin egen React.
 export default defineConfig({
-  plugins: [react()],
+  plugins: [tailwindcss(), react()],
   build: {
     lib: {
       entry: resolve(import.meta.dirname, 'src/index.ts'),

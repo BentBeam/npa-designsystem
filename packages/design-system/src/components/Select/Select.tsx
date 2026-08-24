@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import './Select.css'
+import { FIELD_ERROR, FIELD_HELP, FIELD_LABEL, FIELD_REQUIRED, FIELD_WRAPPER } from '../field-classes'
 
 export interface SelectOption {
   /** Texten som visas i listan. */
@@ -50,18 +50,49 @@ export function Select({
   const id = useId()
   const describedById = error ? `${id}-error` : helperText ? `${id}-help` : undefined
 
+  /* Felfärg (ram + inset-ring) gäller alltid, oavsett hover/fokus – annars
+     ärvs default-ramens hover/fokus-beteende (se Select.css-motsvarigheten).
+     `peer` kopplas till chevronens peer-disabled-färg nedan. */
+  const selectClasses = [
+    'peer appearance-none w-full cursor-pointer',
+    'font-sans text-body-md text-text-primary bg-bg-surface',
+    'p-md pr-[calc(var(--spacing-md)+18px)] border rounded-md',
+    'transition-[border-color,box-shadow] duration-150',
+    error
+      ? 'border-border-error shadow-[inset_0_0_0_1px_var(--color-border-error)]'
+      : 'border-border-default enabled:hover:border-border-strong ' +
+        'focus:border-border-focus focus:shadow-[inset_0_0_0_1px_var(--color-border-focus)]',
+    'disabled:bg-bg-disabled disabled:text-text-disabled disabled:border-border-disabled disabled:cursor-not-allowed',
+  ]
+    .filter(Boolean)
+    .join(' ')
+
+  /* Egen chevron (˅) ritad med två kantlinjer, precis som tidigare CSS. */
+  const chevronClasses = [
+    'absolute right-md top-1/2 h-2 w-2',
+    'translate-y-[-65%] rotate-45',
+    'border-r-2 border-b-2 border-text-secondary',
+    'pointer-events-none',
+    'peer-disabled:border-r-text-disabled peer-disabled:border-b-text-disabled',
+  ].join(' ')
+
   return (
-    <div className="npa-field">
+    <div className={FIELD_WRAPPER}>
       {label && (
-        <label className="npa-field__label" htmlFor={id}>
+        <label className={FIELD_LABEL} htmlFor={id}>
           {label}
-          {required && <span className="npa-field__required" aria-hidden="true"> *</span>}
+          {required && (
+            <span className={FIELD_REQUIRED} aria-hidden="true">
+              {' '}
+              *
+            </span>
+          )}
         </label>
       )}
-      <div className="npa-select-wrap">
+      <div className="relative flex">
         <select
           id={id}
-          className={`npa-select${error ? ' npa-select--error' : ''}`}
+          className={selectClasses}
           value={value ?? ''}
           disabled={disabled}
           required={required}
@@ -80,15 +111,15 @@ export function Select({
             </option>
           ))}
         </select>
-        <span className="npa-select__chevron" aria-hidden="true" />
+        <span className={chevronClasses} aria-hidden="true" />
       </div>
       {error ? (
-        <p id={`${id}-error`} className="npa-field__error">
+        <p id={`${id}-error`} className={FIELD_ERROR}>
           {error}
         </p>
       ) : (
         helperText && (
-          <p id={`${id}-help`} className="npa-field__help">
+          <p id={`${id}-help`} className={FIELD_HELP}>
             {helperText}
           </p>
         )

@@ -1,5 +1,4 @@
 import { useId } from 'react'
-import './RadioGroup.css'
 
 export interface RadioOption {
   /** Texten bredvid knappen. */
@@ -23,6 +22,38 @@ export interface RadioGroupProps {
   disabled?: boolean
 }
 
+const fieldsetClasses = 'flex flex-col gap-sm border-none m-0 p-0'
+
+const legendClasses = 'p-0 mb-xs font-sans text-label font-medium text-text-primary'
+
+const labelClasses = [
+  'group inline-flex items-center gap-sm',
+  'font-sans text-body-md text-text-primary',
+  'cursor-pointer',
+  'has-[:disabled]:opacity-80 has-[:disabled]:text-text-disabled has-[:disabled]:cursor-not-allowed',
+].join(' ')
+
+/* Native input göms visuellt (men finns kvar för skärmläsare/tangentbord) via
+   `peer` – `__circle` styr sitt utseende med `peer-*`-varianter. */
+const inputClasses = 'peer absolute opacity-0 w-0 h-0'
+
+const circleClasses = [
+  'inline-flex items-center justify-center',
+  'w-[18px] h-[18px] shrink-0',
+  'bg-bg-surface border-[1.5px] border-border-strong rounded-full',
+  'transition-colors duration-150',
+  'peer-checked:border-action-primary',
+  // Hover på ovald, aktiverad knapp → blå ram
+  'peer-[:not(:checked):not(:disabled)]:group-hover:border-border-focus',
+  'peer-disabled:bg-bg-disabled peer-disabled:border-border-disabled',
+  'peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-action-focus-ring',
+  // Pricken i mitten (default dold, ::after)
+  'after:content-[""] after:w-[10px] after:h-[10px] after:rounded-full after:bg-action-primary after:scale-0',
+  'after:transition-transform after:duration-150',
+  'peer-checked:after:scale-100',
+  'peer-disabled:after:bg-action-disabled-fg',
+].join(' ')
+
 /**
  * Grupp av radioknappar – för att välja **ett** alternativ av flera.
  *
@@ -39,21 +70,21 @@ export function RadioGroup({
   const name = useId()
 
   return (
-    <fieldset className="npa-radiogroup" disabled={disabled}>
-      {legend && <legend className="npa-radiogroup__legend">{legend}</legend>}
+    <fieldset className={fieldsetClasses} disabled={disabled}>
+      {legend && <legend className={legendClasses}>{legend}</legend>}
       {options.map((opt) => (
-        <label key={opt.value} className="npa-radio">
+        <label key={opt.value} className={labelClasses}>
           <input
             type="radio"
-            className="npa-radio__input"
+            className={inputClasses}
             name={name}
             value={opt.value}
             checked={value === opt.value}
             disabled={opt.disabled}
             onChange={() => onChange?.(opt.value)}
           />
-          <span className="npa-radio__circle" aria-hidden="true" />
-          <span className="npa-radio__label">{opt.label}</span>
+          <span className={circleClasses} aria-hidden="true" />
+          <span>{opt.label}</span>
         </label>
       ))}
     </fieldset>
