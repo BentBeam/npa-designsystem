@@ -1,0 +1,78 @@
+/* NPA Banana Button – ikon-knapp uppbyggd av lagrade SVG:er från Figma. */
+
+.npa-banana-button {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 55px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.npa-banana-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.npa-banana-button:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* --- Tillstånd: default synligt, hover fadas in ovanpå --- */
+.npa-banana-button__state {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.15s ease;
+}
+
+.npa-banana-button__state--hover {
+  opacity: 0;
+}
+
+.npa-banana-button:hover:not(:disabled) .npa-banana-button__state--default {
+  opacity: 0;
+}
+
+.npa-banana-button:hover:not(:disabled) .npa-banana-button__state--hover {
+  opacity: 1;
+}
+
+/* --- Lager (positionerna är exakt exporterade från Figma) --- */
+.npa-banana-button__layer {
+  position: absolute;
+  display: block;
+  max-width: none;
+}
+
+.npa-banana-button__layer--skaft { inset: 6.98% 9.27% 74.3% 82.43%; }
+.npa-banana-button__layer--skal  { inset: 19.97% 6.55% 5.72% 8.47%; }
+.npa-banana-button__layer--ljus  { inset: 49.39% 14.63% 12.79% 42.11%; }
+.npa-banana-button__layer--spets { inset: 84.08% 82.11% 8.1% 6.39%; }
+
+/* Skaft-topp är roterad/skevad i Figma – återskapas med samma transform. */
+.npa-banana-button__skaft-topp-wrap {
+  position: absolute;
+  inset: 5.25% 8.39% 90.73% 85.38%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  container-type: size;
+}
+
+.npa-banana-button__skaft-topp-box {
+  position: relative;
+  flex: none;
+  width: hypot(91.4333cqw, 17.4107cqh);
+  height: hypot(-8.56674cqw, 82.5893cqh);
+  transform: rotate(8.01deg) skewX(0.03deg);
+}
+
+.npa-banana-button__skaft-topp-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}

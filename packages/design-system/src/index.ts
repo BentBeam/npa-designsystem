@@ -12,6 +12,9 @@ import './styles/global.css'
 export { Button } from './components/Button/Button'
 export type { ButtonProps } from './components/Button/Button'
 
+export { BananaButton } from './components/BananaButton/BananaButton'
+export type { BananaButtonProps } from './components/BananaButton/BananaButton'
+
 export { Badge } from './components/Badge/Badge'
 export type { BadgeProps } from './components/Badge/Badge'
 
